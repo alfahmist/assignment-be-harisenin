@@ -1,18 +1,18 @@
 const db = require("../db");
 
-const login = async (name) => {
+const login = async (email) => {
   const query = await db("user")
-    .where("name", name)
-    .select("name", "password")
+    .where("email", email)
+    .select("email", "password")
     .first()
   return query;
 };
 
 const register = async (name, password) => {
   const query = await db("user")
-    .insert({ name: name, password: password })
+    .insert({ email: name, password: password })
     .then((result) => result)
-    .catch((error) => {throw new Error("name sudah terdaftar")});
+    .catch((error) => {throw new Error("email sudah terdaftar")});
   return query;
 };
 

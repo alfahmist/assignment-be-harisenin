@@ -63,6 +63,7 @@ exports.up = function (knex) {
     })
     .createTable("user", function (table) {
       table.increments("id").primary().notNullable();
+      table.string("email").unique();
       table.string("name");
       table.string("password");
       table.integer("rewards_exp");

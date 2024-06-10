@@ -1,9 +1,17 @@
-const validateLogin = (req, res, next) => {
-  const { name, password } = req.body;
+const { isEmail } = require("validator");
 
-  if (!name || !password) {
+const validateLogin = (req, res, next) => {
+  const { email, password } = req.body;
+
+  if (!email || !password) {
     return res.status(400).send({
-      message: "name dan password wajib diisi",
+      message: "email dan password wajib diisi",
+    });
+  }
+
+  if (!isEmail(email)) {
+    return res.status(400).send({
+      message: "Invalid email",
     });
   }
 
@@ -11,15 +19,21 @@ const validateLogin = (req, res, next) => {
 };
 
 const validateRegister = (req, res, next) => {
-  const { name, password } = req.body;
+  const { email, password } = req.body;
 
-  if (!name || !password) {
+  if (!email || !password) {
     return res.status(400).send({
-      message: "name dan password wajib diisi",
+      message: "email dan password wajib diisi",
+    });
+  }
+
+  if (!isEmail(email)) {
+    return res.status(400).send({
+      message: "Invalid email",
     });
   }
 
   next();
 };
 
-module.exports = { validateLogin,validateRegister };
+module.exports = { validateLogin, validateRegister };

@@ -4,13 +4,13 @@ const jwt = require("jsonwebtoken");
 const authModel = require("../models/auth");
 
 const login = async (req, res, next) => {
-  const { name, password } = req.body;
   try {
+    const { email, password } = req.body;
     // cari name
-    result = await authModel.login(name);
+    result = await authModel.login(email);
 
     if (!result) {
-      throw new Error("name tidak ditemukan");
+      throw new Error("email tidak ditemukan");
     }
 
     const isPasswordValid = await bcrypt.compare(password, result.password);
@@ -20,7 +20,7 @@ const login = async (req, res, next) => {
         message: "password salah",
       });
     } else {
-      const token = jwt.sign({ name: result.name }, "secret");
+      const token = jwt.sign({ email: result.email }, "secret");
       return res.status(200).send({
         message: "login sukses",
         token: token,
@@ -34,12 +34,11 @@ const login = async (req, res, next) => {
 };
 
 const register = async (req, res, next) => {
-  const { name, password } = req.body;
   try {
-
+    const { email, password } = req.body;
     const passwordHash = await bcrypt.hash(password, 10);
 
-    result = await authModel.register(name, passwordHash);
+    result = await authModel.register(email, passwordHash);
 
     return res.status(200).send({
       message: "register sukses",

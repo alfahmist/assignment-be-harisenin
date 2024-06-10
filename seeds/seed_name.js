@@ -4,11 +4,6 @@
  */
 exports.seed = async function (knex) {
 
-  await knex("user").insert([
-    { id: 1, name: "alfahmi", password: 'alfahmi'},
- 
-  ]);
-
   await knex("kelas").del();
   await knex("kelas").insert([
     { id: 1, name: "kelas1" },
