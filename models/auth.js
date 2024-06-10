@@ -8,4 +8,12 @@ const login = async (name) => {
   return query;
 };
 
-module.exports = { login };
+const register = async (name, password) => {
+  const query = await db("user")
+    .insert({ name: name, password: password })
+    .then((result) => result)
+    .catch((error) => {throw new Error("name sudah terdaftar")});
+  return query;
+};
+
+module.exports = { login, register };
