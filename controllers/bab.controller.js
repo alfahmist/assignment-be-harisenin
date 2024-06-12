@@ -1,10 +1,17 @@
+const jwt = require("jsonwebtoken");
 const babModel = require("../models/bab.model");
 
 const getBab = async (req, res, next) => {
   try {
     const { id_mata_pelajaran } = req.query;
-    console.log(id_mata_pelajaran);
-    const result = await babModel.getBab(id_mata_pelajaran);
+  
+    const token = req.headers['authorization'].split(' ')[1];
+    token ? console.log(token) : ''
+
+    const {userid} = jwt.verify(token, "secret");  
+    console.log(userid);
+
+    const result = await babModel.getBab(id_mata_pelajaran,userid);
     if (!result) {
       throw new Error(`bab tidak ditemukan`);
     }

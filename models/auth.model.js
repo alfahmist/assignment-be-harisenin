@@ -3,7 +3,7 @@ const db = require("../db");
 const login = async (email) => {
   const query = await db("user")
     .where("email", email)
-    .select("email", "password")
+    .select("id","email", "password")
     .first()
   return query;
 };

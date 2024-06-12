@@ -20,7 +20,8 @@ const login = async (req, res, next) => {
         message: "password salah",
       });
     } else {
-      const token = jwt.sign({ email: result.email }, "secret");
+      const token = jwt.sign({ userid: result.id }, "secret");
+      req.headers.authorization = "Bearer" + token;
       return res.status(200).send({
         message: "login sukses",
         token: token,

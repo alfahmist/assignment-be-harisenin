@@ -38,7 +38,7 @@ exports.up = function (knex) {
     .createTable("sub_bab", function (table) {
       table.increments("id").primary().notNullable();
       table.string("name");
-      table.boolean("gratis");
+      table.boolean("isGratis");
       table.integer("bab_id");
 
       table.foreign("bab_id").references("id").inTable("bab");
@@ -69,17 +69,6 @@ exports.up = function (knex) {
       table.integer("rewards_exp");
       table.integer("rewards_gold");
     })
-    .createTable("my_course", function (table) {
-      table.increments("id").primary().notNullable();
-      table.integer("user_id");
-      table.integer("mode_pembelajaran_id");
-
-      table.foreign("user_id").references("id").inTable("user");
-      table
-        .foreign("mode_pembelajaran_id")
-        .references("id")
-        .inTable("mode_pembelajaran");
-    })
     .createTable("progress_bab", function (table) {
       table.increments("id").primary().notNullable();
       table.integer("user_id");
@@ -102,8 +91,8 @@ exports.up = function (knex) {
       table.increments("id").primary().notNullable();
       table.integer("user_id");
       table.integer("material_id");
-      table.float("progress", 4, 2);
-
+      table.boolean("isSelesai")
+      
       table.foreign("user_id").references("id").inTable("user");
       table.foreign("material_id").references("id").inTable("material");
     });
