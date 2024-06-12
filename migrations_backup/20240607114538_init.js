@@ -66,8 +66,8 @@ exports.up = function (knex) {
       table.string("email").unique();
       table.string("name");
       table.string("password");
-      table.integer("rewards_exp");
-      table.integer("rewards_gold");
+      table.integer("exp");
+      table.integer("gold");
     })
     .createTable("progress_bab", function (table) {
       table.increments("id").primary().notNullable();
@@ -91,8 +91,8 @@ exports.up = function (knex) {
       table.increments("id").primary().notNullable();
       table.integer("user_id");
       table.integer("material_id");
-      table.boolean("isSelesai")
-      
+      table.boolean("isSelesai");
+
       table.foreign("user_id").references("id").inTable("user");
       table.foreign("material_id").references("id").inTable("material");
     });

@@ -9,7 +9,7 @@ exports.seed = async function (knex) {
       id: 1,
       email: "email@gmail.com",
       name: "alfahmi",
-      password: "$2y$12$NCaQuWvcRHpR13XuaZN7Hu/Jn/zGlmfQ4KtRqdKPSgQ8NHCA72o76",
+      password: "$2b$10$CaMJc5PQcWluVZ80d9569.readztdZ9ccxs9Ipcrg4BL2GXJ8kgZ2",
       exp: 300,
       gold: 3000,
     },
