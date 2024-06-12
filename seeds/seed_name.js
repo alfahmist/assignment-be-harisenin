@@ -317,39 +317,39 @@ exports.seed = async function (knex) {
     { id: 192, name: "material 4", sub_bab_id: 48, jenis_material_id: 4 },
   ]);
 
-  await knex("progress_bab").del();
-  await knex("progress_bab").insert([
-    { id: 1, user_id: 1, bab_id: 1, progress: 50 },
-    { id: 2, user_id: 1, bab_id: 2, progress: 0 },
-  ]);
+  // await knex("progress_bab").del();
+  // await knex("progress_bab").insert([
+  //   { id: 1, user_id: 1, bab_id: 1, progress: 50 },
+  //   { id: 2, user_id: 1, bab_id: 2, progress: 0 },
+  // ]);
 
-  await knex("progress_sub_bab").del();
-  await knex("progress_sub_bab").insert([
-    { id: 1, user_id: 1, sub_bab_id: 1, progress: 100 },
-    { id: 2, user_id: 1, sub_bab_id: 2, progress: 0 },
-    { id: 3, user_id: 1, sub_bab_id: 3, progress: 0 },
-    { id: 4, user_id: 1, sub_bab_id: 4, progress: 0 },
-    { id: 5, user_id: 1, sub_bab_id: 5, progress: 0 },
-    { id: 6, user_id: 1, sub_bab_id: 6, progress: 0 },
-  ]);
+  // await knex("progress_sub_bab").del();
+  // await knex("progress_sub_bab").insert([
+  //   { id: 1, user_id: 1, sub_bab_id: 1, progress: 100 },
+  //   { id: 2, user_id: 1, sub_bab_id: 2, progress: 0 },
+  //   { id: 3, user_id: 1, sub_bab_id: 3, progress: 0 },
+  //   { id: 4, user_id: 1, sub_bab_id: 4, progress: 0 },
+  //   { id: 5, user_id: 1, sub_bab_id: 5, progress: 0 },
+  //   { id: 6, user_id: 1, sub_bab_id: 6, progress: 0 },
+  // ]);
 
-  await knex("progress_material").del();
-  await knex("progress_material").insert([
-    { id: 1, user_id: 1, material_id: 1, isSelesai: true },
-    { id: 2, user_id: 1, material_id: 2, isSelesai: true },
-    { id: 3, user_id: 1, material_id: 3, isSelesai: true },
-    { id: 4, user_id: 1, material_id: 4, isSelesai: true },
-    { id: 5, user_id: 1, material_id: 5, isSelesai: false },
-    { id: 6, user_id: 1, material_id: 6, isSelesai: false },
-    { id: 7, user_id: 1, material_id: 7, isSelesai: false },
-    { id: 8, user_id: 1, material_id: 8, isSelesai: false },
-    { id: 9, user_id: 1, material_id: 9, isSelesai: false },
-    { id: 10, user_id: 1, material_id: 10, isSelesai: false },
-    { id: 11, user_id: 1, material_id: 11, isSelesai: false },
-    { id: 12, user_id: 1, material_id: 12, isSelesai: false },
-    { id: 13, user_id: 1, material_id: 13, isSelesai: false },
-    { id: 14, user_id: 1, material_id: 14, isSelesai: false },
-    { id: 15, user_id: 1, material_id: 15, isSelesai: false },
-    { id: 16, user_id: 1, material_id: 16, isSelesai: false },
-  ]);
+  // await knex("progress_material").del();
+  // await knex("progress_material").insert([
+  //   { id: 1, user_id: 1, material_id: 1, isSelesai: true },
+  //   { id: 2, user_id: 1, material_id: 2, isSelesai: true },
+  //   { id: 3, user_id: 1, material_id: 3, isSelesai: true },
+  //   { id: 4, user_id: 1, material_id: 4, isSelesai: true },
+  //   { id: 5, user_id: 1, material_id: 5, isSelesai: false },
+  //   { id: 6, user_id: 1, material_id: 6, isSelesai: false },
+  //   { id: 7, user_id: 1, material_id: 7, isSelesai: false },
+  //   { id: 8, user_id: 1, material_id: 8, isSelesai: false },
+  //   { id: 9, user_id: 1, material_id: 9, isSelesai: false },
+  //   { id: 10, user_id: 1, material_id: 10, isSelesai: false },
+  //   { id: 11, user_id: 1, material_id: 11, isSelesai: false },
+  //   { id: 12, user_id: 1, material_id: 12, isSelesai: false },
+  //   { id: 13, user_id: 1, material_id: 13, isSelesai: false },
+  //   { id: 14, user_id: 1, material_id: 14, isSelesai: false },
+  //   { id: 15, user_id: 1, material_id: 15, isSelesai: false },
+  //   { id: 16, user_id: 1, material_id: 16, isSelesai: false },
+  // ]);
 };

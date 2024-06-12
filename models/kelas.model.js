@@ -14,9 +14,6 @@ const saveKelas = async (id_mode_pembelajaran, userid) => {
     .join("mode_pembelajaran as mpb ", "mp.mode_pembelajaran_id", "mpb.id")
     .andWhere("mode_pembelajaran_id", id_mode_pembelajaran)
     .then((results) => results.map((result) => result.mata_pelajaran));
-  // .join("bab as b ", "mp.id", "b.mata_pelajaran_id")
-  // .join("sub_bab as sb ", "b.id", "sb.bab_id")
-  // .join("material as mt ", "sb.id", "mt.sub_bab_id")
 
   const bab = await db("bab as b")
     .select("b.id as bab")
@@ -53,7 +50,7 @@ const saveKelas = async (id_mode_pembelajaran, userid) => {
   await trx("progress_bab").insert(forBab);
   await trx("progress_sub_bab").insert(forSubBab);
   await trx("progress_material").insert(forMaterial);
-  
+
   await trx.commit();
 
   return "save success";

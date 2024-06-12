@@ -77,7 +77,9 @@ exports.up = function (knex) {
 
       table.foreign("user_id").references("id").inTable("user");
       table.foreign("bab_id").references("id").inTable("bab");
+      table.unique(["user_id", "bab_id"]);
     })
+
     .createTable("progress_sub_bab", function (table) {
       table.increments("id").primary().notNullable();
       table.integer("user_id");
@@ -86,6 +88,7 @@ exports.up = function (knex) {
 
       table.foreign("user_id").references("id").inTable("user");
       table.foreign("sub_bab_id").references("id").inTable("sub_bab");
+      table.unique(["user_id", "sub_bab_id"]);
     })
     .createTable("progress_material", function (table) {
       table.increments("id").primary().notNullable();
@@ -95,6 +98,7 @@ exports.up = function (knex) {
 
       table.foreign("user_id").references("id").inTable("user");
       table.foreign("material_id").references("id").inTable("material");
+      table.unique(["user_id", "material_id"]);
     });
 };
 
